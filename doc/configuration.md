@@ -1,7 +1,7 @@
 RPi Configuration
 ==================
 
-See https://www.raspberrypi.org/documentation/configuration/
+See also: https://www.raspberrypi.org/documentation/configuration/
 
 Boot options
 ------------
@@ -16,7 +16,7 @@ The raspi-config tool
 
 ### Enable SSH server
 
-Run `sudo raspi-config`. Choose `5 Interfacing options` >> `P2 SSH - enable`
+Run `sudo raspi-config`. Choose `5 Interfacing options` &rarr; `P2 SSH - enable`
 
 Another option: create empty `ssh` file on `boot` partition (not checked).
 
