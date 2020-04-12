@@ -1,2 +1,7 @@
-# raspberrypi
-Raspberry Pi setup and example code
+# Raspberry Pi
+
+Raspberry Pi setup and example code.
+
+- [Windows connection sharing](doc/windows.md)
+- [Configuration](doc/configuration.md)
+- [Administration](doc/administration.md)
