@@ -5,16 +5,16 @@ We will be _sharing_ the WiFi connection and _connecting_ Raspberry Pi through E
 
 ![Network Connections](win-network-adapters.png)
 
-Select WiFi, right-click for Properties and select "Allow other network users to connect through this computer's internet connection". Choose "Ethernet" as Home networking nonnection.
+Select WiFi, right-click for Properties and select "Allow other network users to connect through this computer's internet connection". Choose "Ethernet" as Home networking connection.
 
 ![WiFi Properties](win-wifi-properties.png)
 
-Connect Raspberry Pi with Ethernect cable and boot it. The DHCP client is already enabled and will configure the IP address. The address will be printed on the RPi console.
+Connect Raspberry Pi with Ethernet cable and boot it. The DHCP client is already enabled and will configure the IP address. The address will be printed on the RPi console.
 
 Finding Raspberry Pi address
 ----------------------------
 
-If you run the Rapberry Pi headless, this is what you can do to find it's IP address:
+If you run the Raspberry Pi headless, this is what you can do to find it's IP address:
 
 Use `ipconfig` to find your "Ethernet" adapter IP address:
 
