@@ -3,7 +3,7 @@
 import time
 import RPi.GPIO as g
 
-CHANNEL = 17
+CHANNEL = 18
 DELAY = 2
 
 g.setmode(g.BCM)
