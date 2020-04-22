@@ -18,7 +18,7 @@ while running:
     gpio_state = ''.join([str(g.input(pin)) for pin in PINS])
     ans = raw_input(gpio_state + '> ')
     if len(ans) == len(PINS) and all(ans[i] == '0' or ans[i] == '1' for i in range(len(PINS))):
-	g.output(PINS, [g.HIGH if pin == '1' else g.LOW for pin in ans])
+        g.output(PINS, [g.HIGH if pin == '1' else g.LOW for pin in ans])
     elif len(ans) == 1 and ans[0] == 'q':
         running = False
     else:
