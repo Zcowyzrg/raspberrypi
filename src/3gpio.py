@@ -7,7 +7,7 @@ help_message = 'Specify GPIO values as 000, 001, etc. Type q for quit or anythin
 running = True
 
 g.setmode(g.BCM)
-g.setup(PINS, g.OUT, initial=g.HIGH)
+g.setup(PINS, g.OUT, initial=g.LOW)
 
 for a, b in g.RPI_INFO.iteritems():
     print '-- %s : %s' % (a, b)
