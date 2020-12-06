@@ -6,3 +6,4 @@ Raspberry Pi setup and example code.
 * [Configuration](doc/configuration.md)
 * [Administration](doc/administration.md)
 * [GPIO](doc/gpio.md)
+* [Using camera](doc/camera.md)
