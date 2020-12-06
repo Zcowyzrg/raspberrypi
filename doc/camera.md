@@ -1,6 +1,7 @@
 
 # Streaming camera over network - raw h264
 
+* https://picamera.readthedocs.io/en/release-1.13/fov.html (camera hardware)
 * https://www.raspberrypi.org/forums/viewtopic.php?t=235684
 * https://www.raspberrypi.org/documentation/raspbian/applications/camera.md
 * https://wiki.videolan.org/Media_resource_locator/
