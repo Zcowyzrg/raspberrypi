@@ -1,7 +1,7 @@
 RPi Configuration
 ==================
 
-See also: https://www.raspberrypi.org/documentation/configuration/
+See also: https://www.raspberrypi.com/documentation/computers/configuration.html
 
 Boot options
 ------------
@@ -23,13 +23,13 @@ Another option: create empty `ssh` file on `boot` partition (not checked).
 Another option: just use `systemctl`.
 
 See also:
-* https://www.raspberrypi.org/documentation/remote-access/ssh/
-* https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
+* https://www.raspberrypi.com/documentation/computers/remote-access.html
+* https://www.raspberrypi.com/documentation/computers/configuration.html#setting-up-a-headless-raspberry-pi
 
 Other configuration
 -------------------
 
-- zeroconf - avahi daemon is running by default. Enables host discovery by name with Windows.
+- zeroconf - avahi daemon is running by default. Enables host discovery by name with Windows (ping raspberrypi.local).
 - ssh - not enabled by default.
 
 Show MAC address:
