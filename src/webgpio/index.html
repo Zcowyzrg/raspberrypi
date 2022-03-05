@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head><title>Relay control</title>
+<style>
+body { font: 14px sans-serif; }
+.button { border : 2px solid gray; border-radius : 4px; }
+.button_on { border-color: red; }
+</style>
+<script>
+function update_buttons(n, ans) {
+  // ans: 0 = active, 1 = inactive
+  console.log("Buttons update:", n, ans);
+  switch (n) {
+    case 1:
+      btn_id = new Map([['0', 'bypass'], ['1', 'debug']]).get(ans);
+      document.getElementById(btn_id).classList.add('button_on');
+      break;
+    case 2:
+      if (ans == 1) {
+        document.getElementById('reset').classList.remove('button_on');
+      }
+      break;
+    default: console.warn('Wrong button set');
+  }
+}
+function do_fetch1(v) {
+  ['debug', 'bypass'].map(x => document.getElementById(x).classList.remove('button_on'));
+  do_fetch(1, v);
+}
+function do_fetch2(v) {
+  document.getElementById('reset').classList.add('button_on');
+  do_fetch(2, v);
+}
+function do_fetch(n, v) {
+  fetch('/gpio/set', {method : 'post', body : `action=${v}`})
+  .then(response => {
+    if (response.ok) {
+      response.text().then(text => update_buttons(n, text.trim()))
+    } // else?
+  })
+}
+</script>
+</head>
+<body>
+Flash mode:
+<button class="button" type="button" id="bypass" onclick="do_fetch1('bypass')">Bypass</button>
+<button class="button" type="button" id="debug" onclick="do_fetch1('debug')">Debug</button>
+<br>
+<button class="button" type="button" id="reset" onclick="do_fetch2('reset')">Reset board</button>
+</body>
+</html>
