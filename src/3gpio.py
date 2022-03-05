@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import RPi.GPIO as g
 
@@ -10,9 +10,9 @@ g.setmode(g.BCM)
 g.setup(PINS, g.OUT, initial=g.LOW)
 
 for a, b in g.RPI_INFO.iteritems():
-    print '-- %s : %s' % (a, b)
+    print('-- %s : %s' % (a, b))
 
-print help_message
+print(help_message)
 
 while running:
     gpio_state = ''.join([str(g.input(pin)) for pin in PINS])
@@ -22,6 +22,6 @@ while running:
     elif len(ans) == 1 and ans[0] == 'q':
         running = False
     else:
-        print help_message
+        print(help_message)
 
 g.cleanup(PINS)
