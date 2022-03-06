@@ -2,9 +2,16 @@
 <html>
 <head><title>Relay control</title>
 <style>
-body { font: 14px sans-serif; }
-.button { border : 2px solid gray; border-radius : 4px; }
-.button_on { border-color: red; }
+@media only screen and (min-width : 481px) {
+  body, button { font: 6vw sans-serif; }
+  .button { border : 8px solid gray; border-radius : 16px; margin: 8px 0px; }
+  .button_on { border-color : red; }
+}
+@media only screen and (min-width : 1025px) {
+  body, button { font: 14px sans-serif; }
+  .button { border : 2px solid gray; border-radius : 4px; margin: 2px 0px; }
+  .button_on { border-color : red; }
+}
 </style>
 <script>
 function update_buttons(ans) {
