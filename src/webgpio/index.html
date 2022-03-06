@@ -7,41 +7,42 @@ body { font: 14px sans-serif; }
 .button_on { border-color: red; }
 </style>
 <script>
-function update_buttons(n, ans) {
+function update_buttons(ans) {
   // ans: 0 = active, 1 = inactive
-  console.log("Buttons update:", n, ans);
-  switch (n) {
-    case 1:
-      btn_id = new Map([['0', 'bypass'], ['1', 'debug']]).get(ans);
-      document.getElementById(btn_id).classList.add('button_on');
-      break;
-    case 2:
-      if (ans == 1) {
-        document.getElementById('reset').classList.remove('button_on');
-      }
-      break;
-    default: console.warn('Wrong button set');
+  console.log("Buttons update:", ans);
+  let btn_id = new Map([['0', 'bypass'], ['1', 'debug']]).get(ans[0]);
+  document.getElementById(btn_id).classList.add('button_on');
+  if (ans[1] == 1) {
+    document.getElementById('reset').classList.remove('button_on');
   }
 }
 function do_fetch1(v) {
   ['debug', 'bypass'].map(x => document.getElementById(x).classList.remove('button_on'));
-  do_fetch(1, v);
+  do_fetch(v);
 }
 function do_fetch2(v) {
   document.getElementById('reset').classList.add('button_on');
-  do_fetch(2, v);
+  do_fetch(v);
 }
-function do_fetch(n, v) {
+function do_fetch(v) {
   fetch('/gpio/set', {method : 'post', body : `action=${v}`})
   .then(response => {
     if (response.ok) {
-      response.text().then(text => update_buttons(n, text.trim()))
+      response.text().then(text => update_buttons(text.trim()))
+    } // else?
+  })
+}
+function do_update() {
+  fetch('/gpio/get', {method : 'get'})
+  .then(response => {
+    if (response.ok) {
+      response.text().then(text => update_buttons(text.trim()))
     } // else?
   })
 }
 </script>
 </head>
-<body>
+<body onload="do_update()">
 Flash mode:
 <button class="button" type="button" id="bypass" onclick="do_fetch1('bypass')">Bypass</button>
 <button class="button" type="button" id="debug" onclick="do_fetch1('debug')">Debug</button>
